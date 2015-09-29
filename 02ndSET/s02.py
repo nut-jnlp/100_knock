@@ -146,6 +146,25 @@ def find_uniq(file_name):
     return column_set
 
 
+def val_sort(file_name):
+    """
+    各行を3コラム目の数値の降順にソート
+    :param file_name: 対象ファイル名
+    :return: 文字列
+    確認コマンド：cat hightemp.txt | sort -k 3 -r
+    """
+    texts = open(file_name)
+    temp2line = {}
+    num = 0
+    for line in texts:
+        ken, shi, temp, day = line.split("\t")
+        temp2line[num] = temp
+        num += 1
+    print sorted(temp2line.items(), key=lambda x:x[1], reverse=True)
+    
+
+
+
 #print line_count(text_file)
 #print tab2space(text_file)
 #cut_column(text_file)
@@ -153,4 +172,5 @@ def find_uniq(file_name):
 #print output_head(text_file, 7)
 #print output_tail(text_file, 7)
 #file_split(text_file, 5)
-print "\n".join(find_uniq(text_file))
+#print "\n".join(find_uniq(text_file))
+val_sort(text_file)
