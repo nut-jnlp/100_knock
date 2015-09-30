@@ -146,23 +146,33 @@ def find_uniq(file_name):
     return column_set
 
 
-def val_sort(file_name):
+def val_sort(file_name, order):
     """
     各行を3コラム目の数値の降順にソート
     :param file_name: 対象ファイル名
+    :param order: 0:昇順, 1：降順
     :return: 文字列
     確認コマンド：cat hightemp.txt | sort -k 3 -r
     """
     texts = open(file_name)
-    temp2line = {}
+    buf = ""
+    temp2line = {}  # 辞書型で保持
+    text2line = {}
+    del_set = set()
     num = 0
     for line in texts:
         ken, shi, temp, day = line.split("\t")
+        text2line[num] = (ken, shi, temp, day)
         temp2line[num] = temp
         num += 1
-    print sorted(temp2line.items(), key=lambda x:x[1], reverse=True)
-    
-
+    sort_temp = sorted(temp2line.items(), key=lambda x: x[1], reverse=order)
+    for num_temp in xrange(len(sort_temp)):
+        for num_text in xrange(len(text2line)):
+            if sort_temp[num_temp][1] == text2line[num_text][2]:
+                if num_text not in del_set:
+                    buf = buf+"\t".join(text2line[num_text])
+                    del_set.add(num_text)
+    return buf
 
 
 #print line_count(text_file)
@@ -173,4 +183,4 @@ def val_sort(file_name):
 #print output_tail(text_file, 7)
 #file_split(text_file, 5)
 #print "\n".join(find_uniq(text_file))
-val_sort(text_file)
+print val_sort(text_file, 1)
