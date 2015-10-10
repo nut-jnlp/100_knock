@@ -175,6 +175,32 @@ def val_sort(file_name, order):
     return buf
 
 
+def uniq_sort(file_name):
+    """
+    各行の1コラム目の文字列の出現頻度を求め，出現頻度の高い順に並べる
+    :param file_name: 対象ファイル名
+    :return: 文字列
+    確認コマンド：cat hightemp.txt | cut -f 1 | sort |  uniq -c
+    | sort -r | awk '{print $2}'
+    """
+    column_1 = cut_column_2(file_name, 1)
+    ken_dict = {}
+    buf = ""
+    old_word = ""
+    word_num = 0
+    for word in sorted(column_1):
+        if old_word == word:
+            word_num += 1
+        else:
+            word_num = 1
+        ken_dict[word] = word_num
+        old_word = word
+    sort_ken = sorted(ken_dict.items(), key=lambda x: x[1], reverse=True)
+    for ken in sort_ken:
+        buf = buf+ken[0]+"\n"
+    return buf
+
+
 #print line_count(text_file)
 #print tab2space(text_file)
 #cut_column(text_file)
@@ -183,4 +209,5 @@ def val_sort(file_name, order):
 #print output_tail(text_file, 7)
 #file_split(text_file, 5)
 #print "\n".join(find_uniq(text_file))
-print val_sort(text_file, 1)
+#print val_sort(text_file, 1)
+print uniq_sort(text_file)
