@@ -5,10 +5,7 @@ sentence = "Now I need a drink, alcoholic of course, after the heavy lectures in
 
 words = sentence.split(" ")
 
-
-pi = []
-for word in words:
-    pi.append(len(word))
+pi = [len(word) for word in words]
 
 print pi
 
