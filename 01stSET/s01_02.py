@@ -4,11 +4,12 @@
 word_1 = u"パトカー"
 word_2 = u"タクシー"
 
-words_1 = list(word_1)
-words_2 = list(word_2)
-
+if len(word_1) >= len(word_2):
+    loop = len(word_2)
+else:
+    loop = len(word_1)
 output = ""
-for n in range(0,len(words_2)):
-    output = output + words_1[n] + words_2[n]
+for n in xrange(0,loop):
+    output = "".join([output, word_1[n], word_2[n]])
 
 print output
