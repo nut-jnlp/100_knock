@@ -5,7 +5,7 @@ import random
 
 sentece = "I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."
 
-def Typoglycemia(sentece):
+def typoglycemia(sentece):
     r_sentence = []
     words = sentece.split()
     for word in words:
@@ -17,4 +17,5 @@ def Typoglycemia(sentece):
             r_sentence.append(word)
     return " ".join(r_sentence)
 
-print Typoglycemia(sentece)
+
+print typoglycemia(sentece)
