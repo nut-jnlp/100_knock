@@ -1,6 +1,5 @@
+#! /usr/bin/python3
 # coding: utf-8
-
-from __future__ import print_function, unicode_literals
 
 def main():
     print(template_string(x=12, y="気温", z=22.4))
