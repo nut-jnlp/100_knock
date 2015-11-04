@@ -1,16 +1,15 @@
+#! /usr/bin/python3
 # coding: utf-8
 
-from __future__ import print_function, unicode_literals
 from collections import OrderedDict
 
 def main():
     text = "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."
     words = text.split(" ")
+    target_elements = (1, 5, 6, 7, 8, 9, 15, 16, 19)
     elements = []
     for i, word in enumerate(words):
-        i += 1
-        if i == 1 or i == 5 or i == 6 or i == 7 or i == 8 or i == 9 or \
-                i == 15 or i == 16 or i == 19:
+        if i + 1 in target_elements:
             elements.append(word[:1])
         else:
             elements.append(word[:2])
