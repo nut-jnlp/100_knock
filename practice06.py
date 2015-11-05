@@ -16,10 +16,7 @@ def bi_gram(seq):
     return n_gram(seq, 2)
 
 def n_gram(seq, n):
-    _n_gram = []
-    for i in range(len(seq) - (n - 1)):
-        _n_gram.append((seq[i], seq[i + (n - 1)]))
-    return _n_gram
+    return (item for item in zip(seq[:-(n - 1)], seq[n - 1:]))
 
 if __name__ == "__main__":
     main()
