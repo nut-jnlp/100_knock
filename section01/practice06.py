@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 # coding: utf-8
 
+from functools import partial
+
 def main():
     s1 = "paraparaparadise"
     s2 = "paragraph"
@@ -11,12 +13,12 @@ def main():
     print("X | Y:", X | Y)
     print("X & Y:", X & Y)
     print("X - Y:", X - Y)
-
-def bi_gram(seq):
-    return n_gram(seq, 2)
+    print('"se" in X and Y?', "se" in (X & Y))
 
 def n_gram(seq, n):
-    return (item for item in zip(seq[:-(n - 1)], seq[n - 1:]))
+    for item in zip(seq[:-(n - 1)], seq[n - 1:]):
+        yield item
+bi_gram = partial(n_gram, n=2)
 
 if __name__ == "__main__":
     main()
