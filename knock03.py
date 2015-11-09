@@ -1,12 +1,14 @@
-#03 パトカー + タクシー　= パタトクカシー
-#パトカーとタクシーの文字を先頭から交互に連結して文字列パタトクカシーを得よ
+#03 パトカー + タクシー　= パタトクカシーー
+#パトカーとタクシーの文字を先頭から交互に連結して文字列パタトクカシーーを得よ
 
-chara1 = "パトカー"
-chara2 = "タクシー"
-chara3 = ""
+words1 = "パトカー"
+words2 = "タクシー"
 
-for i in range(0,4):
-   chara3 += chara1[i] + chara2[i]
+print (("".join(["".join((word1,word2)) for (word1,word2) in zip(words1, words2)])))
 
-print(chara3)
 
+
+#memo
+#sep.join(seq) --> sepを区切り文字として,seqを連結する
+#zip(list1,list2) --> list1とlist2を同時にループできる。要素数が異なる場合は少ない方に合わせる。
+#内包処理 []で囲む
