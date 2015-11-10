@@ -6,8 +6,11 @@ import sys
 def main():
     with open("hightemp.txt") as f:
         disp_num = int(sys.argv[1])
-        lines = f.readlines()
-        print(*lines[:disp_num], sep='', end='')
+        for line in f:
+            print(line, end='')
+            disp_num -= 1
+            if disp_num < 1:
+                break
 
 if __name__ == "__main__":
     main()
