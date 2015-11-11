@@ -3,9 +3,9 @@
 import os
 
 def main():
-	print len(open("hightemp.txt", "r").readlines())
+    print len(open("hightemp.txt", "r").readlines())
 
 if __name__ == "__main__":
-	main()
+    main()
 
 # 確認コマンド : wc -l hightemp.txt
