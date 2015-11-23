@@ -1,15 +1,14 @@
+#!/usr/bin/env python3.4.3
+#coding:utf-8
+
 #04 元素記号
 #"words" を単語ごとに分解し、文字数を先頭から順に並べたリストを作成する。
 import re
 
-words = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
-list = []
+text = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
 
-for word in re.split("\s|,\s|\.",words):
-	list.append(len(word))
-list.pop()
-print(list)
+list = ([w.strip(",.")for w in text.split()])
 
-#memo
-#list.append("xxx") xxxをlistの最後に追加する
-#re.split("xxx|yyy",word) wordをxxxとyyyで分割する(import re)
+print (len(list))
+
+
