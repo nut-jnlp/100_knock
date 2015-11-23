@@ -1,0 +1,8 @@
+#03 円周率
+#wordsを単語に分け、文字数を先頭から順番に並べたリストを作成せよ
+
+import re
+
+words = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+
+for word in re.split("[] ")
