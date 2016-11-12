@@ -2,5 +2,9 @@
 # _*_ coding: utf-8 _*_
 
 word = "パタトクカシーー"
-extract = word[0:7:2]
-print(extract)
+
+extract1 = word[::2]
+print(extract1)
+
+extract2 = word[1::2]
+print(extract2)
