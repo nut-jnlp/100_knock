@@ -5,9 +5,6 @@ word1 = "パトカー"
 word2 = "タクシー"
 linking = ""
 
-lengh1 = len(word1)
-lengh2 = len(word2)
-
-for i in range(max(lengh1, lengh2)):
-    linking += (word1[i] + word2[i])
+for (str1, str2) in zip(word1, word2):
+    linking += (str1 + str2)
 print(linking)
