@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+from itertools import chain
 word1 = "パトカー"
 word2 = "タクシー"
 
-s = [s1+s2 for s1, s2 in zip(word1, word2)]
-print("".join(s))
+merged_word = ''.join(chain(*zip(word1, word2)))
+print(merged_word)
