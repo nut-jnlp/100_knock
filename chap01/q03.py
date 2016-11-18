@@ -6,6 +6,6 @@ after the heavy lectures involving quantum mechanics.\
 """
 
 words = sentence.replace(",", "").replace(".", "").split()
-nums = [len(word) for word in words]
+nums = list(map(len, words))
 
 print(nums)
