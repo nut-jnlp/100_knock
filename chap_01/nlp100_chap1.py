@@ -99,6 +99,22 @@ def solve_07(x, y, z):
     """
     return "{x}時の{y}は{z}".format(x=x, y=y, z=z)
 
+
+def solve_08(word):
+    """
+    08. 暗号文
+    与えられた文字列の各文字を，以下の仕様で変換する関数cipherを実装せよ．
+    - 英小文字ならば(219 - 文字コード)の文字に置換
+    - その他の文字はそのまま出力
+    この関数を用い，英語のメッセージを暗号化・復号化せよ．
+    """
+    def cipher(word):
+        chars = [chr(219-ord(char)) if char.islower() else char for char in word]
+        return ''.join(chars)
+
+    return cipher(word)
+
+
 if __name__ == "__main__":
     print(solve_00())
     print(solve_01())
@@ -108,3 +124,8 @@ if __name__ == "__main__":
     print(solve_05())
     print(solve_06())
     print(solve_07(x=12, y="気温", z=22.4))
+
+    english_message = "This is a message."
+    cryped_message = solve_08(english_message)
+    assert(solve_08(cryped_message), english_message)
+    print(english_message, cryped_message, english_message, sep=' -> ')
