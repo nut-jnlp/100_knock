@@ -30,6 +30,22 @@ def solve_11():
 
     return '\n'.join(lines)
 
+
+def solve_12():
+    """
+    12. 1列目をcol1.txtに，2列目をcol2.txtに保存
+    各行の1列目だけを抜き出したものをcol1.txtに，2列目だけを抜き出したものをcol2.txtとしてファイルに保存せよ．確認にはcutコマンドを用いよ．
+
+
+    """
+    with open('./col1.txt', 'w') as fout_col1, open('./col2.txt', 'w') as fout_col2:
+        for line in sys.stdin:
+            cols = line.rstrip('\n').split('\t')
+
+            fout_col1.writelines([cols[0], '\n'])
+            fout_col2.writelines([cols[1], '\n'])
+
 if __name__ == "__main__":
     # print(solve_10())
-    print(solve_11())
+    # print(solve_11())
+    solve_12()
