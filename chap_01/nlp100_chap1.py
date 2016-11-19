@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from itertools import chain
+import random
 
 
 def solve_00():
@@ -109,11 +110,39 @@ def solve_08(word):
     この関数を用い，英語のメッセージを暗号化・復号化せよ．
     """
     def cipher(word):
-        chars = [chr(219-ord(char)) if char.islower() else char for char in word]
+        chars = [chr(219 - ord(char)) if char.islower()
+                 else char for char in word]
         return ''.join(chars)
 
     return cipher(word)
 
+
+def solve_09(sentence):
+    """
+    09. Typoglycemia
+    スペースで区切られた単語列に対して，各単語の先頭と末尾の文字は残し，それ以外の文字の順序をランダムに並び替えるプログラムを作成せよ．ただし，長さが４以下の単語は並び替えないこととする．適当な英語の文（例えば"I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."）を与え，その実行結果を確認せよ．
+    """
+
+    typoglycemia_words = []
+    for word in sentence.split(' '):
+        # 長さが4以下の単語は並び替えない
+        if len(word) <= 4:
+            typoglycemia_words.append(word)
+            continue
+        else:
+            # 先頭と末尾
+            char_head = word[0]
+            char_tail = word[-1]
+
+            # それ以外の文字の順序を並び替えた文字列を作成
+            char_inner = list(word[1:-1])
+            random.shuffle(char_inner)
+            char_inner = ''.join(char_inner)
+
+            typoglycemia_words.append(
+                ''.join([char_head, char_inner, char_tail]))
+
+    return ' '.join(typoglycemia_words)
 
 if __name__ == "__main__":
     print(solve_00())
@@ -129,3 +158,5 @@ if __name__ == "__main__":
     cryped_message = solve_08(english_message)
     assert(solve_08(cryped_message), english_message)
     print(english_message, cryped_message, english_message, sep=' -> ')
+
+    print(solve_09(sentence="I couldn't believe that I could actually understand what I was reading : the phenomenal power of the human mind ."))
