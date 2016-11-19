@@ -3,6 +3,7 @@
 
 
 import sys
+import argparse
 
 
 def solve_10():
@@ -61,8 +62,23 @@ def solve_13():
 
             fout.writelines([line1, '\t', line2, '\n'])
 
+
+def solve_14(n=1):
+    """
+    14. 先頭からN行を出力
+    自然数Nをコマンドライン引数などの手段で受け取り，入力のうち先頭のN行だけを表示せよ．確認にはheadコマンドを用いよ．
+
+    cat hightemp.txt | head -8
+    """
+    return '\n'.join([line.rstrip('\n') for i, line in enumerate(sys.stdin) if i < n])
+
 if __name__ == "__main__":
     # print(solve_10())
     # print(solve_11())
     # solve_12()
-    solve_13()
+    # solve_13()
+
+    parser = argparse.ArgumentParser(description='課題14')
+    parser.add_argument('-n', type=int, default=5, help='先頭から表示する行数N')
+    args = parser.parse_args()
+    print(solve_14(n=args.n))
