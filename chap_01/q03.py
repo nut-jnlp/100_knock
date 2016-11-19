@@ -3,21 +3,18 @@
 s = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
 
 # 空白ごとに分割
-word = s.split(" ")
-
-# 空白の回数
-times = s.count(" ") #14
+words = s.split(" ")
 
 # 単語末尾の,を削除
-for i in range(times):
-	word[i] = word[i].strip(',')
+for i in range(len(words)):
+	words[i] = words[i].strip(',').strip('.')
 
 # 辞書dictを初期化
 dict = {}
 
 # dictに単語と文字長の要素を追加
-for i in range(times):
-	dict['%s' % word[i]] = len(word[i])
+for i in range(len(words)):
+	dict['%s' % words[i]] = len(words[i])
 
 # dictの内容を表示
 '''
