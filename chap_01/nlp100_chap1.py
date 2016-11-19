@@ -61,18 +61,35 @@ def solve_04():
     return dict(picked)
 
 
+def ngram(sequence, n=1):
+    """
+    シーケンスに対してngramを返す
+    """
+    assert(n > 0)
+    return [sequence[i:i + n] for i in range(len(sequence) - n + 1)]
+
+
 def solve_05():
     """
     05. n-gram
     与えられたシーケンス（文字列やリストなど）からn-gramを作る関数を作成せよ．この関数を用い，"I am an NLPer"という文から単語bi-gram，文字bi-gramを得よ．
     """
     sentence = 'I am an NLPer'
-
-    def ngram(sequence, n=1):
-        assert(n > 0)
-        return [sequence[i:i + n] for i in range(len(sequence) - n + 1)]
-
     return ngram(sentence, n=2), ngram(sentence.split(' '), n=2)
+
+
+def solve_06():
+    """
+    06. 集合
+    "paraparaparadise"と"paragraph"に含まれる文字bi-gramの集合を，それぞれ, XとYとして求め，XとYの和集合，積集合，差集合を求めよ．さらに，'se'というbi-gramがXおよびYに含まれるかどうかを調べよ．
+    """
+    word1 = 'paraparaparadise'
+    word2 = 'paragraph'
+
+    X = set(ngram(word1, n=2))
+    Y = set(ngram(word2, n=2))
+
+    return (X | Y), (X & Y), (X - Y), 'se' in (X & Y)
 
 if __name__ == "__main__":
     print(solve_00())
@@ -81,3 +98,4 @@ if __name__ == "__main__":
     print(solve_03())
     print(solve_04())
     print(solve_05())
+    print(solve_06())
