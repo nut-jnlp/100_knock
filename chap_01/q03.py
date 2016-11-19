@@ -13,8 +13,9 @@ for i in range(len(words)):
 dict = {}
 
 # dictに単語と文字長の要素を追加
+# format関数を使用
 for i in range(len(words)):
-	dict['%s' % words[i]] = len(words[i])
+	dict['{w}'.format(w=words[i])] = len(words[i])
 
 # dictの内容を表示
 '''
