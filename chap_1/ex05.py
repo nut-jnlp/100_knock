@@ -16,7 +16,7 @@ def n_gram_str(s, n):
         return [s[i:i+n] for i in range(0, length, n)]
 
 s = "I am an NLPer"
-n = 20
+n = 2
 
 print(n_gram_word(s, n))
 print(n_gram_str(s, n))
