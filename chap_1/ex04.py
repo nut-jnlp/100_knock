@@ -6,10 +6,10 @@ s = s.replace(",", "").replace(".", "")
 s = s.split(' ')
 el = {}
 
+indexs = [0, 4, 5, 6, 7, 8, 14 ,15 ,18]
+
 for index, word in enumerate(s):
-    if(word == s[0] or word == s[4] or word == s[5] or word == s[6]\
-    or word == s[7] or word == s[8] or word == s[14] or word == s[15]\
-    or word == s[18]):
+    if index in indexs:
         el[index+1] = word[0]
     else:
         el[index+1] = word[0]+word[1]
