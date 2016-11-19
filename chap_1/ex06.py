@@ -13,8 +13,8 @@ Y = set(n_gram_str(s2, 2))
 print("X = "+str(X))
 print("Y = "+str(Y))
 
-print("intersection = "+str(X.intersection(Y)))
-print("union = "+str(X.union(Y)))
-print("difference = "+str(X.difference(Y)))
+print("intersection = "+str(X & Y))
+print("union = "+str(X | Y))
+print("difference = "+str(X - Y))
 
-print("se" in list(X.union(Y)))
+print("se" in list(X | Y))
