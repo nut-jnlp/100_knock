@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+from itertools import chain
+
 
 def solve_00():
     """
@@ -10,6 +12,7 @@ def solve_00():
     word = 'stressed'
     print(word[::-1])
 
+
 def solve_01():
     """
     01. 「パタトクカシーー」
@@ -18,6 +21,18 @@ def solve_01():
     word = "パタトクカシーー"
     print(word[::2])
 
+
+def solve_02():
+    """
+    02. 「パトカー」＋「タクシー」＝「パタトクカシーー」
+    「パトカー」＋「タクシー」の文字を先頭から交互に連結して文字列「パタトクカシーー」を得よ．
+    """
+    word1 = 'パトカー'
+    word2 = 'タクシー'
+    chars = chain.from_iterable(zip(word1, word2))
+    print(''.join(chars))
+
 if __name__ == "__main__":
     solve_00()
     solve_01()
+    solve_02()
