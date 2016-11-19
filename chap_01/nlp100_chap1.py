@@ -55,9 +55,24 @@ def solve_04():
     words = sentence.split(' ')
 
     target_nums = (1, 5, 6, 7, 8, 9, 15, 16, 19)
-    picked = [(word[0], i) if i in target_nums else (word[:2], i) for i, word in enumerate(words, start=1)]
+    picked = [(word[0], i) if i in target_nums else (word[:2], i)
+              for i, word in enumerate(words, start=1)]
 
     return dict(picked)
+
+
+def solve_05():
+    """
+    05. n-gram
+    与えられたシーケンス（文字列やリストなど）からn-gramを作る関数を作成せよ．この関数を用い，"I am an NLPer"という文から単語bi-gram，文字bi-gramを得よ．
+    """
+    sentence = 'I am an NLPer'
+
+    def ngram(sequence, n=1):
+        assert(n > 0)
+        return [sequence[i:i + n] for i in range(len(sequence) - n + 1)]
+
+    return ngram(sentence, n=2), ngram(sentence.split(' '), n=2)
 
 if __name__ == "__main__":
     print(solve_00())
@@ -65,3 +80,4 @@ if __name__ == "__main__":
     print(solve_02())
     print(solve_03())
     print(solve_04())
+    print(solve_05())
