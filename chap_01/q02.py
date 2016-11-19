@@ -11,6 +11,13 @@ print()
 '''
 
 # zip関数：複数のシーケンスをまとめてループ
+'''
 for s1,s2 in zip(s1,s2):
 	print(s1+s2,end="")
+print("")
+'''
+
+# タプルを取って文字列結合
+for comb in zip(s1,s2):
+	print("".join(comb),end="")
 print("")
