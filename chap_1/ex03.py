@@ -5,5 +5,5 @@ s = s.replace(",", "").replace(".", "")
 s = s.split(' ')
 print(s)
 
-num = list((len(s[a]) for a in range(15)))
+num = [len(s[a]) for a in range(15)]
 print(num)
