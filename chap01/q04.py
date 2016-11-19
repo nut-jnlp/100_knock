@@ -3,7 +3,7 @@
 sentence = """\
 Hi He Lied Because Boron Could Not Oxidize Fluorine. \
 New Nations Might Also Sign Peace Security Clause. Arthur King Can."""
-top_char = [1, 5, 6, 7, 8, 9, 15, 16, 19]
+top_char = {1, 5, 6, 7, 8, 9, 15, 16, 19}
 
 words = sentence.replace(",", "").replace(".", "").split(" ")
 elms = map(
