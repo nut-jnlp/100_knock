@@ -91,6 +91,14 @@ def solve_06():
 
     return (X | Y), (X & Y), (X - Y), 'se' in (X & Y)
 
+
+def solve_07(x, y, z):
+    """
+    07. テンプレートによる文生成
+    引数x, y, zを受け取り「x時のyはz」という文字列を返す関数を実装せよ．さらに，x=12, y="気温", z=22.4として，実行結果を確認せよ．
+    """
+    return "{x}時の{y}は{z}".format(x=x, y=y, z=z)
+
 if __name__ == "__main__":
     print(solve_00())
     print(solve_01())
@@ -99,3 +107,4 @@ if __name__ == "__main__":
     print(solve_04())
     print(solve_05())
     print(solve_06())
+    print(solve_07(x=12, y="気温", z=22.4))
