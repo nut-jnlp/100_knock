@@ -72,6 +72,18 @@ def solve_14(n=1):
     """
     return '\n'.join([line.rstrip('\n') for i, line in enumerate(sys.stdin) if i < n])
 
+
+def solve_15(n=1):
+    """
+    15. 末尾のN行を出力
+    自然数Nをコマンドライン引数などの手段で受け取り，入力のうち末尾のN行だけを表示せよ．確認にはtailコマンドを用いよ．
+
+    cat hightemp.txt | tail -8
+    """
+    lines = [line.rstrip('\n') for line in sys.stdin]
+    return '\n'.join(lines[-n:])
+
+
 if __name__ == "__main__":
     # print(solve_10())
     # print(solve_11())
@@ -81,4 +93,5 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='課題14')
     parser.add_argument('-n', type=int, default=5, help='先頭から表示する行数N')
     args = parser.parse_args()
-    print(solve_14(n=args.n))
+    # print(solve_14(n=args.n))
+    print(solve_15(n=args.n))
