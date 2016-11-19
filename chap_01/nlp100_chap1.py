@@ -45,8 +45,23 @@ def solve_03():
     charcter_nums = [len(word) for word in words]
     return charcter_nums
 
+
+def solve_04():
+    """
+    04. 元素記号
+    "Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can."という文を単語に分解し，1, 5, 6, 7, 8, 9, 15, 16, 19番目の単語は先頭の1文字，それ以外の単語は先頭に2文字を取り出し，取り出した文字列から単語の位置（先頭から何番目の単語か）への連想配列（辞書型もしくはマップ型）を作成せよ．
+    """
+    sentence = 'Hi He Lied Because Boron Could Not Oxidize Fluorine. New Nations Might Also Sign Peace Security Clause. Arthur King Can.'
+    words = sentence.split(' ')
+
+    target_nums = (1, 5, 6, 7, 8, 9, 15, 16, 19)
+    picked = [(word[0], i) if i in target_nums else (word[:2], i) for i, word in enumerate(words, start=1)]
+
+    return dict(picked)
+
 if __name__ == "__main__":
     print(solve_00())
     print(solve_01())
     print(solve_02())
     print(solve_03())
+    print(solve_04())
