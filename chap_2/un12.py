@@ -1,11 +1,7 @@
 # -*- coding: utf-8 -*-
-input_file = open('input.txt', 'r')
-output1_file = open('col1.txt', 'w')
-output2_file = open('col2.txt', 'w')
-
-lines = input_file.readlines()
-
-output1_file.write(lines[0])
-output1_file.close()
-output2_file.write(lines[1])
-output2_file.close()
+with open('input.txt') as input_file:
+    with open('col1.txt', 'w') as output1_file:
+            with open('col2.txt', 'w') as output2_file:
+                for line in iter(input_file.readlines()):
+                    output1_file.writelines(line.split('\t')[0]+'\n')
+                    output2_file.writelines(line.split('\t')[1]+'\n')

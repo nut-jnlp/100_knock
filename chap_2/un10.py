@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 line_number = 0
-a_file = open('input.txt', 'r')
-for line in a_file:
-    line_number += 1
+with open('input.txt') as input_file:
+    for line in input_file:
+        line_number += 1
 
-print(line_number)
+    print("行数:"+str(line_number))

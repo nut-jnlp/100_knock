@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-a_file = open('input.txt', 'r')
-b_file = open('output.txt', 'w')
-
-for line in a_file:
-    line = line.replace("\t", " ")
-    print(line)
+with open('input.txt') as input_file:
+    with open('un11_output.txt','w') as output_file:
+        for line in input_file:
+            line = line.replace("\t", " ")
+            output_file.write(line)
