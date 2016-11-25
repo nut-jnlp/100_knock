@@ -1,6 +1,5 @@
 # coding:utf-8
 import sys
-import fileinput
 
 args = sys.argv
 n = int(args[1])
