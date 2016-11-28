@@ -6,9 +6,8 @@ n = int(args[1])
 path = args[2]
 
 with open(path, "r") as fin:
-    for i in range(n):
-        line = fin.readline()
-        if not line:
+    for idx, line in enumerate(fin):
+        if n <= idx:
             break
         print(line, end="")
 # python q14.py 4 col1.txt
